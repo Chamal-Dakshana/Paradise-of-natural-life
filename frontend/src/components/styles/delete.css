@@ -1,0 +1,50 @@
+.bx{
+    width:500px;
+    height: 500px;
+    background-color: rgba(111, 111, 209, 0.459);
+    padding-top: 1000px;
+
+}
+
+.row{
+    padding-top: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+
+.td{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Topic{
+    color: rgb(195, 195, 226);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.topic22{
+    color:azure;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.para22{
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.button22{
+    background-color: rgb(26, 124, 91);
+}
+
+.table01{
+    padding-top: 30px;
+}
+
