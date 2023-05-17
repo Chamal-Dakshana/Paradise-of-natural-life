@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
-
+import "./styles/all.css";
 
 function AllOwenerProject() {
   const[project, setProject] = useState([]);
@@ -37,9 +36,9 @@ function AllOwenerProject() {
  
 
   return (
-  <div className="container">
+  <div className="containe">
 
-<nav className="navbar navbar-expand-lg nav-dark1" >
+    <nav className="navbar navbar-expand-lg nav-dark1" >
         <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="headButton">
@@ -51,10 +50,10 @@ function AllOwenerProject() {
                     <a className="nav-link" aria-current="page" href="/addOwnerProject">Add Project</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/getAll">Update Project</a>
+                    <a className="nav-link" aria-current="page" href="/updateOwnerProject">Update Project</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/add">Delete Project</a>
+                    <a className="nav-link" aria-current="page" href="/deleteOwnerProject">Delete Project</a>
                 </li>
             </ul>
         </div>
@@ -72,42 +71,35 @@ function AllOwenerProject() {
               </form>
           </div>
       </nav>
-  
+        <div className="table01">
       <table className="table table-bordered table-striped text-center">
             <thead className="thead-dark"><br/>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Project Name</th>
-                    <th scope="col">Project Category</th>
-                    <th scope="col">Project Purpose</th>
-                    <th scope="col">Project Duration</th>
-                    <th scope="col">Project Result</th>
-                    <th scope="col">Project Result Duration</th>
+                    <th className="col" scope="col">Project Name</th>
+                    <th className="col" scope="col">Project Category</th>
+                    <th className="col" scope="col">Project Purpose</th>
+                    <th className="col" scope="col">Project Duration</th>
+                    <th className="col" scope="col">Project Result</th>
+                    <th className="col" scope="col">Project Result Duration</th>
                 </tr>
             </thead>
             <tbody>
                 {filteredCountrise.map((project, index) => (
                     <tr key={index}>
-                        <th scope="row">{index + 1}</th>
-                        <td>{project.proName}</td>
-                        <td>{project.proCategory}</td>
-                        <td>{project.proPurpose}</td>
-                        <td>{project.proDuration}</td>
-                        <td>{project.proResult}</td>
-                        <td>{project.proResultDuration}</td>
-                        <td>
-                            <Link className="btn btn-warning" to={"/product/update/" + project._id}>
-                            <i className="fas fa-edit"></i>&nbsp;Edit</Link>
-                            &nbsp;
-                            <button className="btn btn-danger" onClick={() => Delete(project._id)} >
-                            <i className="fas fa-trash-alt"></i>&nbsp;Delete
-                            </button>
-
-                        </td>
+                        <th className="cl1" scope="row">{index + 1}</th>
+                        <td className="cl1">{project.proName}</td>
+                        <td className="cl1">{project.proCategory}</td>
+                        <td className="cl1">{project.proPurpose}</td>
+                        <td className="cl1">{project.proDuration}</td>
+                        <td className="cl1">{project.proResult}</td>
+                        <td className="cl1">{project.proResultDuration}</td>
+                        
                     </tr>
                 ))}
             </tbody>
         </table>
+        </div>
         <br /><br /><br />
       </div>);
 }
