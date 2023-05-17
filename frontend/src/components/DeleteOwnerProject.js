@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-
+import "./styles/delete.css"
 
 
 import { Link } from "react-router-dom";
@@ -46,8 +46,30 @@ function DeleleOwnerProject(){
      })
     
     return(
-        <div>
+        <div class="containe">
 
+    <nav className="navbar navbar-expand-lg nav-dark1" >
+        <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="headButton">
+            <ul className="navbar-nav me-auto-mb-2 mb-lg-0">
+                <li className="nav-item">
+                    <a className="nav-link"  href="/allOwenerProject">All Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/addOwnerProject">Add Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/updateOwnerProject">Update Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/deleteOwnerProject">Delete Project</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </nav>
             
             <div class="Topic"><h3>Delete Projects</h3></div>
 
@@ -69,26 +91,25 @@ function DeleleOwnerProject(){
                 <div class="row">
                 <div class="col-12">
 
+                
                 <table class="table table-image">
                 <thead>
-                <td>
-                <th scope="col" width="600"><h2>{item.proName}</h2>
-                <p>{item.proCategory}</p>
-                <p >{item.proPurpose}</p>
-                <p >$ {item.proResult}</p>
+                <td className="td">
+                <th scope="col" width="600"><h2 className="topic22">Project Name: {item.proName}</h2>
+                <p className="para22">Project Category: {item.proCategory}</p>
+                <p className="para22" >Project Propose: {item.proPurpose}</p>
+                <p className="para22">Project Result: {item.proResult}</p>
                
-            
-                <button> <Link to ="/product" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
-                           
-                          
+                <button className="button22"> <Link to ="/product" className="btn btn-danger" onClick={() => Delete(item._id)} >Delete </Link></button></th>
+                                     
                 </td>
-                
                 </thead>
                 </table>  
                 </div>
                 </div>
                 </div>
                 </div>
+               
            
 
                 )}
