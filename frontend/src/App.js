@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import Home from './components/Home';
 import Footer from "./components/Footer";
 import DeleleOwnerProject from './components/DeleteOwnerProject';
+import UpdateOwnerProject from './components/UpdateOwnerProject';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
      <Route path="/allOwenerProject" element={<AllOwenerProject />}></Route>
      <Route path="/addFeedback" element={<AddFeeback />}></Route>
      <Route path="/deleteOwnerProject" element={<DeleleOwnerProject />}></Route>
+     <Route path="/updateOwnerProject" element={<UpdateOwnerProject />}></Route>
      </Routes>
      <Footer className></Footer>
      </Router>
