@@ -1,128 +1,98 @@
-import React, { sendLetter, useState } from "react";
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
-import axios from "axios";
-import Header from "../Header";
-import Footer from "../Footer";
-import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
-const AddFeedback = () => {
-  const [validated, setValidated] = useState(false);
-  let history = useHistory();
+import React,{useState} from "react";
+import axios from 'axios';
+import "./styles/ProjectOwnerMenu.css"
+import "./styles/add.css"
 
-  const [feedback, addFeedback] = useState({
-    fullName: "",
-    email: "",
-    feedBack: "",
-  });
-  const { fullName, email, feedBack } = feedback;
-  const onInputChange = (e) => {
-    addFeedback({ ...feedback, [e.target.name]: e.target.value });
-  };
+export default function AddOwnerProject() {
 
-  const onSubmit = async (e) => {
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-    } else {
-      e.preventDefault();
-      await axios.post("http://localhost:8070/feedback/add", feedback);
-      history.push("/");
-      alert(" Successfully added Your Feedback");
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [feedBack, setFeedBack] = useState("");
+
+    function sendData(e){
+        e.preventDefault();
+
+        const newFeedback = {
+            fullName,
+            email,
+            feedBack,
+    
+        }
+
+        axios.post("http://localhost:8070/feedback/add",newFeedback).then(()=>{
+            alert("Feedback comed for us")
+        }).catch((err)=>{
+            alert(err)
+        })
     }
-    setValidated(true);
-  };
 
-  return (
-    <div>
-      <Header />
-      <br />
-      <br />
-      <div className="container">
-        <div
-          className="w-75 mx-auto shadow p-5"
-          style={{
-            background:
-              "url(https://static8.depositphotos.com/1066961/981/i/950/depositphotos_9814717-stock-photo-grunge-travel-background.jpg)",
-            filter: "drop-shadow(0 0 0.75rem #8E7618)",
-          }}
-        >
-          <h2 className="text- mb-10">Feedback Form</h2>
-          <hr /> <br></br>
-          <Form noValidate validated={validated} onSubmit={(e) => onSubmit(e)}>
-            <div className="form-group">
-              <h6>Full Name</h6>
-              <input
-                type="text"
-                className="form-control form-control-lg"
-                placeholder="Enter your Name"
-                name="fullName"
-                value={fullName}
-                onChange={(e) => onInputChange(e)}
-                required
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid Name
-              </Form.Control.Feedback>
-            </div>
 
-            <div class="form-group">
-              <h6>Email</h6>
-              <input
-                type="text"
-                className="form-control form-control-lg"
-                placeholder="Enter your Email"
-                name="email"
-                value={email}
-                onChange={(e) => onInputChange(e)}
-                required
-              />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid Email
-              </Form.Control.Feedback>
-            </div>
-
-            <div className="mb-3">
-              <label for="Textarea" className="form-label">
-                Feedback
-              </label>
-
-              <textarea
-                className="form-control"
-                id="Textarea"
-                rows="3"
-                type="text"
-                placeholder="Please let us know how we're doing"
-                name="feedBack"
-                value={feedBack}
-                onChange={(e) => onInputChange(e)}
-                required
-              ></textarea>
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              <Form.Control.Feedback type="invalid">
-                Please provide a Feedback
-              </Form.Control.Feedback>
-            </div>
-
-            <button type="submit" className="btn btn-secondary">
-              Submit
-            </button>
-          </Form>
+    return(
+        <div className="containe">
+        <div class="add">
+        <nav className="navbar navbar-expand-lg nav-dark1" >
+        <div className="container-fluid">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="headButton">
+            <ul className="navbar-nav me-auto-mb-2 mb-lg-0">
+                <li className="nav-item">
+                    <a className="nav-link"  href="/allOwenerProject">All Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/addOwnerProject">Add Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/getAll">Update Project</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/add">Delete Project</a>
+                </li>
+            </ul>
         </div>
-        <br />
-        <br />
-        <br />
-      </div>
-      <Footer />
-    </div>
-  );
-};
+        </div>
+        </div>
+    </nav>
 
-export default AddFeedback;
-
-//MAIN CONTAINER
-const FeedbackContainer = styled.div`
+        <div className="submitForm">
+            <h2 className="mainTopic2">ADD PROJECT</h2>
+        <form onSubmit={sendData}>
+            <div className="mb-3">
+                <div className="lable01">
+                <label for="proName" className="form-label">Project Name</label>
+                <p className="dot">:</p>
+                <input type="text" className="form-control" id="proName" placeholder="Enter Project Name"
+                onChange={(e) =>{
+                  setFullName(e.target.value);
+                }}/>      
+                </div>        
+            </div>
+            <div className="mb-3">
+                <div className="lable01">
+                <label for="proCategory" className="form-label">Project Category</label>
+                <p className="dot">:</p>
+                <input type="text" className="form-control" id="proCategory" placeholder="Enter Project Category"
+                onChange={(e) =>{
+                  setEmail(e.target.value);
+                }}/>       
+                </div>       
+            </div>
+            <div className="mb-3">
+                <div className="lable01">
+                <label for="proPurpose" className="form-label">Project Purpose</label>
+                <p className="dot">:</p>
+                <input type="text" className="form-control" id="proPurpose" placeholder="What is the project Purpose"
+                onChange={(e) =>{
+                    setFeedBack(e.target.value);
+                }}/>            
+                </div>        
+            </div>
+            
+           <div className="submitButton">
+            <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </div>
+        </div>
+        </div>
+    )
 }
-`;

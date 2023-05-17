@@ -1,10 +1,15 @@
 import './App.css';
 import AddOwnerProject from './components/AddOwnerProject';
 import AllOwenerProject from './components/AllOwenerProject';
+import AddFeeback from "./components/AddFeedback"
+import "./App.css";
+
 import Header from './components/Header';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import Home from './components/Home';
 import Footer from "./components/Footer";
+import DeleleOwnerProject from './components/DeleteOwnerProject';
+
 
 function App() {
   return (
@@ -16,7 +21,9 @@ function App() {
      <Routes>
      <Route path="/home" element={<Home/>}></Route>
      <Route path="/addOwnerProject" element={<AddOwnerProject />}></Route>
-     <Route path="/allOwenerProject" element={<AllOwenerProject />}></Route> 
+     <Route path="/allOwenerProject" element={<AllOwenerProject />}></Route>
+     <Route path="/addFeedback" element={<AddFeeback />}></Route>
+     <Route path="/deleteOwnerProject" element={<DeleleOwnerProject />}></Route>
      </Routes>
      <Footer className></Footer>
      </Router>

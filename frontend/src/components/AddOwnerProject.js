@@ -50,7 +50,7 @@ export default function AddOwnerProject() {
                     <a className="nav-link" aria-current="page" href="/getAll">Update Project</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/add">Delete Project</a>
+                    <a className="nav-link" aria-current="page" href="/deleteOwnerProject">Delete Project</a>
                 </li>
             </ul>
         </div>

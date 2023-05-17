@@ -28,7 +28,7 @@ function Header() {
                         <a className="nav-link" aria-current="page" href="/getAll">DONATION</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/add">BLOG</a>
+                        <a className="nav-link" aria-current="page" href="/addFeedback">BLOG</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" aria-current="page" href="/add">GALARY</a>
