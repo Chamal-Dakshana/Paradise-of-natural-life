@@ -1,0 +1,21 @@
+.col{
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.table01{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cl1{
+    color: rgb(194, 204, 248);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.container-fluid{
+    padding-top: 1px;
+}
